@@ -52,7 +52,6 @@ var get_path = function(current, child_node, CLOSED){
     var parent = current;
     var path = [];
     path.push(child_node.v);
-    console.log("최종 결과 의 부모 : " + child_node.p);
     while(parent){
         path.push(parent.v);
         var closed_len = CLOSED.length;
@@ -87,6 +86,7 @@ var f_dfs = function(data) {
             OPEN = null;
             continue;
         }
+        console.log("search node: " + current.v);
         var children_arr = adjacency_arr[current.v];
         var children_len = children_arr.length;
         for (var i = 0; i < children_len; i++) {
@@ -118,7 +118,7 @@ var f_dfs = function(data) {
 
 // 테스트 데이터
 var test_data = {}; 
-test_data.result = "google"; // 목표값
+test_data.result = "phone"; // 목표값
 test_data.text_arr = ["sky", "apple", "game", "computer", "phone", "google"]; // 실제 노드의 값
 test_data.vertex_arr = [ 0, 1, 2, 3, 4, 5]; // 간단하게 추상화한 노드리스트
 test_data.edge_arr = [[0, 1], [1, 2], [2, 3], [1, 3], [2, 4], [3, 5]]; // 엣지리스트
